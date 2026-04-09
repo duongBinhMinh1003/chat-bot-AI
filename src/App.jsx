@@ -10,33 +10,39 @@ const App = () => {
   const chatBodyRef = useRef();
   const generateBotResponse = async (history) => {
 
-    const updateHistory =(text) =>{
-      setChatHistory((prev) => [...prev.filter(msg=>msg.text !=="Thinking..."),{role:"model",text}]);
-    }
-
-
-    try {
-
-    history = history.map(({ role, text }) => ({role,parts:[{text}]}));
-
-      const response = await axios.post(
-        "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent",
-        { contents: history },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "x-goog-api-key": import.meta.env.VITE_GEMINI_API_KEY,
-          },
-        }
-      );
-  
-      const botText = response.data.candidates[0]?.content?.parts[0]?.text.trim();
-      updateHistory(botText);
-
-    } catch (error) {
-      console.error("Error generating bot response:", error);
-    }
+  const updateHistory = (text) => {
+    setChatHistory((prev) => [
+      ...prev.filter(msg => msg.text !== "Thinking..."),
+      { role: "model", text }
+    ]);
   };
+
+  try {
+    const response = await axios.post(
+      "https://api.mistral.ai/v1/chat/completions",
+      {
+        model: "mistral-medium-latest",
+        messages: history.map(({ role, text }) => ({
+          role: role === "model" ? "assistant" : "user",
+          content: text
+        }))
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${import.meta.env.VITE_MISTRAL_API_KEY}`
+        }
+      }
+    );
+
+    const botText = response.data.choices[0]?.message?.content?.trim();
+    updateHistory(botText || "No response from AI 🤖");
+
+  } catch (error) {
+    console.error("Error generating bot response:", error);
+    updateHistory("⚠️ AI error, please try again!");
+  }
+};
 
   useEffect(() => {
     // Scroll to the bottom of the chat body when new messages are added
