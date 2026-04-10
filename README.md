@@ -39,7 +39,7 @@ Create a `.env` file in the root directory:
 VITE_MISTRAL_API_KEY=your_mistral_api_key_here
 ```
 
-**Get your API key from:** [Google AI Studio](https://makersuite.google.com/app/apikey)
+**Get your API key from:** [Mistral AI API Key](https://admin.mistral.ai/organization/api-keys)
 
 ### 4. Run Development Server
 ```bash
