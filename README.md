@@ -36,7 +36,7 @@ npm install
 ### 3. Environment Setup
 Create a `.env` file in the root directory:
 ```env
-VITE_GEMINI_API_KEY=your_gemini_api_key_here
+VITE_MISTRAL_API_KEY=your_gemini_api_key_here
 ```
 
 **Get your API key from:** [Google AI Studio](https://makersuite.google.com/app/apikey)
