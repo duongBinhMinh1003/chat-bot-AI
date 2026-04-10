@@ -36,7 +36,7 @@ npm install
 ### 3. Environment Setup
 Create a `.env` file in the root directory:
 ```env
-VITE_MISTRAL_API_KEY=your_gemini_api_key_here
+VITE_MISTRAL_API_KEY=your_mistral_api_key_here
 ```
 
 **Get your API key from:** [Google AI Studio](https://makersuite.google.com/app/apikey)
@@ -115,7 +115,7 @@ generationConfig: {
 - **React 18+** - UI framework
 - **Vite** - Build tool and dev server
 - **Axios** - HTTP client for API calls
-- **Google Gemini API** - AI responses
+- **Google Mistral API** - AI responses
 
 ## 🤝 Contributing
 
@@ -132,7 +132,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 🐛 Troubleshooting
 
 ### Common Issues
-- **API Key Error**: Make sure your `.env` file has the correct `VITE_GEMINI_API_KEY`
+- **API Key Error**: Make sure your `.env` file has the correct `VITE_MISTRAL_API_KEY`
 - **Build Fails**: Run `npm install` to ensure all dependencies are installed
 - **Chatbot Not Responding**: Check browser console for API errors
 
@@ -144,4 +144,4 @@ If you encounter issues, please open an issue on GitHub with:
 
 ---
 
-**Made with ❤️ using React + Vite + Gemini AI**
+**Made with ❤️ using React + Vite + Mistral AI**
