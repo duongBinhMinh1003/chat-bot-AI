@@ -20,7 +20,7 @@ A modern AI-powered chatbot built with React and Vite, integrated with Google's 
 ### Prerequisites
 - Node.js 16+ 
 - npm or yarn
-- Google Gemini API Key
+- Google Gemini Mistral Key
 
 ### 1. Clone the Repository
 ```bash
